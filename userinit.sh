@@ -34,7 +34,7 @@ echo "0" > /sys/devices/virtual/misc/boeffla_sound/debug_level
 echo "1" > /sys/devices/virtual/misc/boeffla_sound/privacy_mode
 echo "0" > /sys/devices/virtual/camera/rear/camera_speaker_enabled
 setprop qemu.hw.mainkeys 0
-/data/local/extmount.sh -b 125c3ac9-3704-454a-8aae-26d209691cc7 sdcard1
 
 while [[ ! "$(getprop sys.boot_completed)" = "1" ]]; do sleep 1; done
+/data/local/extmount.sh -b 125c3ac9-3704-454a-8aae-26d209691cc7 sdcard1
 echo "35" > /sys/vibrator/pwm_val
