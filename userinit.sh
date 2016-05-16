@@ -5,7 +5,7 @@ echo "intelliactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo "3" > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo "0" > /sys/module/mali/parameters/mali_debug_level
 echo "0" > /sys/module/ump/parameters/ump_debug_level
-echo "bfq" > /sys/block/mmcblk0/queue/scheduler
+echo "deadline" > /sys/block/mmcblk0/queue/scheduler
 echo "0" > /sys/block/mmcblk0/queue/iostats
 echo "noop" > /sys/block/mmcblk1/queue/scheduler
 echo "0" > /sys/block/mmcblk1/queue/iostats
