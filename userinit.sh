@@ -2,7 +2,7 @@
 
 echo "100000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo "intelliactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-echo "3" > /sys/module/cpuidle_exynos4/parameters/enable_mask
+#echo "2" > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo "0" > /sys/module/mali/parameters/mali_debug_level
 echo "0" > /sys/module/ump/parameters/ump_debug_level
 echo "deadline" > /sys/block/mmcblk0/queue/scheduler
