@@ -23,8 +23,14 @@ echo "51 51" > /sys/devices/virtual/misc/boeffla_sound/headphone_volume
 echo "51 51" > /sys/devices/virtual/misc/boeffla_sound/speaker_volume
 echo "1" > /sys/devices/virtual/misc/boeffla_sound/privacy_mode
 echo "0" > /sys/devices/virtual/camera/rear/camera_speaker_enabled
-setprop qemu.hw.mainkeys 0
+
+# userinit is executed after data is mounted (this is default behavior on
+# cyanogenmod and on my aosp rom) so we don't need to wait
+mnt=/data/media/0/mnt
+mount -t f2fs /dev/block/mmcblk1p1 $mnt/sdcard1
+find $mnt -type f -exec chmod 664 {} \;
+find $mnt -type d -exec chmod 775 {} \;
+chown -R "media_rw:media_rw" $mnt
 
 while [[ ! $(getprop sys.boot_completed) = 1 ]]; do sleep 1; done
-/data/local/extmount.sh -b "125c3ac9-3704-454a-8aae-26d209691cc7" "sdcard1"
 echo "35" > /sys/devices/virtual/timed_output/vibrator/pwm_value
