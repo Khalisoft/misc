@@ -1,0 +1,55 @@
+#!/sbin/sh
+
+# mount system
+mount /system
+
+# remove files
+for i in $(echo '
+app/AdvancedDisplay
+app/BasicDreams
+app/Calendar
+app/Browser
+app/CMWallpapers
+app/Calendar
+app/Eleven
+app/Email
+app/Exchange2
+app/Galaxy4
+app/Gallery2
+app/Gello
+app/HoloSpiralWallpaper
+app/HTMLViewer
+app/LiveWallpapers
+app/LockClock
+app/messaging
+app/Music
+app/NoiseField
+app/OpenWnn
+app/PhaseBeam
+app/PhotoPhase
+app/PhotoTable
+app/PicoTts
+app/QuickSearchBox
+app/SoundRecorder
+app/Terminal
+priv-app/CMUpdater
+priv-app/Screencast
+priv-app/WallpaperCropper'); do
+	rm -rf /system/$i
+done
+
+# extract files
+#unzip -o "$3" "system/*" -d "/"
+
+# set correct permissions for extracted files
+#chmod 775 /system/priv-app/Phonesky
+#chmod 644 /system/priv-app/Phonesky/Phonesky.apk
+
+# build.prop mods
+# 240 dpi
+sed -i 's/ro.sf.lcd_density=320/ro.sf.lcd_density=240/g' /system/build.prop
+# nav bar
+echo 'qemu.hw.mainkeys=0' >> /system/build.prop
+
+# unmount system
+umount /system
