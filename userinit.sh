@@ -19,7 +19,8 @@ echo "0" > /sys/devices/virtual/camera/rear/camera_speaker_enabled
 # userinit is executed after data is mounted (this is default behavior on
 # cyanogenmod and on my aosp rom) so we don't need to wait
 mnt=/data/media/0/mnt
-mount -t f2fs /dev/block/mmcblk1p1 $mnt/sdcard1
+mkdir -p $mnt/sdcard1
+mount -t ext4 /dev/block/mmcblk1p1 $mnt/sdcard1
 find $mnt -type f -exec chmod 664 {} \;
 find $mnt -type d -exec chmod 775 {} \;
 chown -R "media_rw:media_rw" $mnt
