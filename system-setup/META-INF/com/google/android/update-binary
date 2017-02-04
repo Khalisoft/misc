@@ -4,42 +4,42 @@
 mount /system
 
 # remove files
-for i in $(echo '
-app/AdvancedDisplay
-app/BasicDreams
-app/Calendar
-app/Browser
-app/CMWallpapers
-app/Calendar
-app/Eleven
-app/Email
-app/Exchange2
-app/Galaxy4
-app/Gallery2
-app/Gello
-app/HoloSpiralWallpaper
-app/HTMLViewer
-app/LiveWallpapers
-app/LockClock
-app/messaging
-app/Music
-app/NoiseField
-app/OpenWnn
-app/PhaseBeam
-app/PhotoPhase
-app/PhotoTable
-app/PicoTts
-app/QuickSearchBox
-app/SoundRecorder
-app/Terminal
-priv-app/CMUpdater
-priv-app/Screencast
-priv-app/WallpaperCropper'); do
-	rm -rf /system/$i
+for i in app/AdvancedDisplay \
+app/BasicDreams \
+app/Browser \
+app/Browser2 \
+app/Calendar \
+app/Camera2 \
+app/CMWallpapers \
+app/Eleven \
+app/Email \
+app/Exchange2 \
+app/Galaxy4 \
+app/Gallery2 \
+app/Gello \
+app/HoloSpiralWallpaper \
+app/HTMLViewer \
+app/LiveWallpapers \
+app/LockClock \
+app/messaging \
+app/Music \
+app/NoiseField \
+app/OpenWnn \
+app/PhaseBeam \
+app/PhotoPhase \
+app/PhotoTable \
+app/PicoTts \
+app/QuickSearchBox \
+app/SoundRecorder \
+app/Terminal \
+priv-app/CMUpdater \
+priv-app/Screencast \
+priv-app/WallpaperCropper; do
+  rm -rf "/system/${i}"
 done
 
 # extract files
-#unzip -o "$3" "system/*" -d "/"
+#unzip -o "${3}" "system/*" -d "/"
 
 # set correct permissions for extracted files
 #chmod 775 /system/priv-app/Phonesky
